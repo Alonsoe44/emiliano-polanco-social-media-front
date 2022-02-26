@@ -19,7 +19,6 @@ export const loginUserThunk =
       delete userData.iat;
       dispatch(loginUserAction(userData));
     } catch (error) {
-      console.log(error);
       const userData = {
         profile: {
           name: "no user",
@@ -39,6 +38,12 @@ export const registerUserThunk = (newUserData) => async (dispatch) => {
     delete userData.iat;
     dispatch(registerNewUserAction(userData));
   } catch (error) {
-    console.log(error);
+    dispatch(
+      registerNewUserAction({
+        profile: {
+          name: "no user",
+        },
+      })
+    );
   }
 };

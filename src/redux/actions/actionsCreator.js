@@ -10,6 +10,12 @@ export const registerNewUserAction = (newUserData) => ({
   newUserData,
 });
 
-export const loadUsersAction = () => ({
+export const loadUsersAction = (usersGroup) => ({
   type: actionTypes.loadUsers,
+  usersGroup,
+});
+
+export const filterFriendsAction = (filteringObject) => ({
+  type: actionTypes.filterFriends,
+  filteringObject,
 });
