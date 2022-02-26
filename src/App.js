@@ -1,9 +1,7 @@
+import LoginPage from "./components/pages/LoginPage";
+
 function App() {
-  return (
-    <div className="App">
-      <h1>Social media</h1>
-    </div>
-  );
+  return <LoginPage />;
 }
 
 export default App;

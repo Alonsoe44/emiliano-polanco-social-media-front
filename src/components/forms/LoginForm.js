@@ -1,42 +1,39 @@
-import { Button, Grid, Input } from "@nextui-org/react";
+import { Button, Grid, Input, Spacer, Text } from "@nextui-org/react";
 import { useFormik } from "formik";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { loginUserThunk } from "../../redux/thunks/userThunks";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       userName: "",
       password: "",
     },
     onSubmit: ({ userName, password }) => {
-      const credentials = {
-        userName: userName,
-        password: password,
-      };
-      (async () => {
-        const response = await fetch(process.env.REACT_APP_API_URL_LOGIN, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(credentials),
-        });
-        // window.localStorage.token = token;
-        const token = await response.json();
-        console.log(token);
-        // navigate("/toMuseum");
-      })();
+      // dispatch(loginUserThunk({ username: userName, password }));
     },
   });
   return (
     <form onSubmit={formik.handleSubmit}>
-      <Grid.Container
-        gap={2}
-        justify="center"
-        direction="column"
-        alignContent="center"
-      >
-        <Grid>
+      <Grid.Container gap={2} justify="center">
+        <Grid xs={6}></Grid>
+        <Spacer xs={12} y={5} />
+
+        <Grid xs={6}>
+          <Text
+            h1
+            size={60}
+            css={{
+              color: "black",
+            }}
+            weight="bold"
+          >
+            Let's
+          </Text>
+        </Grid>
+        <Grid xs={6}>
           <Input
             id="userName"
             name="userName"
@@ -45,9 +42,22 @@ const LoginForm = () => {
             value={formik.values.email}
             label="Username"
             color="default"
+            autoComplete="off"
           />
         </Grid>
-        <Grid>
+        <Grid xs={6}>
+          <Text
+            h1
+            size={60}
+            css={{
+              color: "#051367",
+            }}
+            weight="bold"
+          >
+            Linkbook
+          </Text>
+        </Grid>
+        <Grid xs={6}>
           <Input
             id="password"
             name="password"
@@ -58,10 +68,18 @@ const LoginForm = () => {
             color="default"
           />
         </Grid>
-
-        <Grid>
-          <Button type="submit" color="success" auto>
+        <Grid xs={6}></Grid>
+        <Grid xs={6}>
+          <Button type="submit" auto>
             Login
+          </Button>
+        </Grid>
+        <Grid xs={6}></Grid>
+        <Spacer y={2} />
+        <Grid xs={6}></Grid>
+        <Grid xs={6}>
+          <Button type="submit" color="success" auto>
+            Create account
           </Button>
         </Grid>
       </Grid.Container>
