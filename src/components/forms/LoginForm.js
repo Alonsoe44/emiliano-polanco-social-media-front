@@ -1,7 +1,6 @@
 import { Button, Grid, Input, Spacer, Text } from "@nextui-org/react";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { loginUserThunk } from "../../redux/thunks/userThunks";
 
 const LoginForm = () => {

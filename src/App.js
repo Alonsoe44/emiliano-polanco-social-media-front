@@ -1,6 +1,6 @@
 import LoginPage from "./components/pages/LoginPage";
 
-import { useNavigate, Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import HomePage from "./components/pages/HomePage";
 
 function App() {
