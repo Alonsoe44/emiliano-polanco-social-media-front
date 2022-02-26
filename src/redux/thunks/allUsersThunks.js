@@ -1,5 +1,5 @@
 import axios from "axios";
-import jsonwebtoken from "jsonwebtoken";
+import jwtDecode from "jwt-decode";
 import {
   filterFriendsAction,
   loadUsersAction,
@@ -33,7 +33,7 @@ export const filterFriendsThunk = async (dispatch) => {
     password: null,
   }));
 
-  const actualUserPayloadToken = await jsonwebtoken.decode(token);
+  const actualUserPayloadToken = await jwtDecode(token);
   const actualUserData = allUsers.find(
     (user) => user._id === actualUserPayloadToken._id
   );

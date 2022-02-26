@@ -1,5 +1,5 @@
 import axios from "axios";
-import jsonwebtoken from "jsonwebtoken";
+import jwtDecode from "jwt-decode";
 import {
   loginUserAction,
   registerNewUserAction,
@@ -15,7 +15,7 @@ export const loginUserThunk =
         password,
       });
       const tokenString = response.data.token;
-      const userData = await jsonwebtoken.decode(tokenString);
+      const userData = await jwtDecode(tokenString);
       delete userData.iat;
       dispatch(loginUserAction(userData));
     } catch (error) {
@@ -34,7 +34,7 @@ export const registerUserThunk = (newUserData) => async (dispatch) => {
   try {
     response = await axios.post(`${apiUrl}register`, newUserData);
     const tokenString = response.data.token;
-    const userData = await jsonwebtoken.decode(tokenString);
+    const userData = await jwtDecode(tokenString);
     delete userData.iat;
     dispatch(registerNewUserAction(userData));
   } catch (error) {
