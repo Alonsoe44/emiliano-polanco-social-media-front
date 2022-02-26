@@ -1,6 +1,8 @@
 name: Testing on push
 
 on: push
+env:
+  SECRET: ${{secrets.SECRET_JWT}}
 
 jobs:
   test:
