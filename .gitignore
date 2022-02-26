@@ -12,6 +12,9 @@
 /build
 
 # misc
+.scannerwork
+.env
+.idea
 .DS_Store
 .env.local
 .env.development.local
