@@ -1,8 +1,18 @@
+import LoginPage from "./components/pages/LoginPage";
+
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./components/pages/HomePage";
+
 function App() {
   return (
-    <div className="App">
-      <h1>Social media</h1>
-    </div>
+    <>
+      <Routes>
+        <Route path="/register" element={<LoginPage />}></Route>
+        <Route path="/home" element={<HomePage />}></Route>
+        <Route path="/profile" element={<LoginPage />}></Route>
+        <Route path="*" element={<LoginPage />} />
+      </Routes>
+    </>
   );
 }
 
