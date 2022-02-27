@@ -1,12 +1,13 @@
 .card-user {
   position: relative;
-  background-color: black;
+  background-color: rgb(49, 49, 49);
   border-radius: 2rem;
   margin: 2rem;
   height: 10rem;
   overflow: hidden;
   width: 43%;
   display: flex;
+  z-index: 5;
 }
 
 .card-user__names {

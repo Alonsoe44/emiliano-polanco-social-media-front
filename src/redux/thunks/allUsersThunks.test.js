@@ -37,7 +37,7 @@ const apiResponse = {
   },
 };
 
-describe("Given a loadAllUsersThunk", () => {
+/* describe("Given a loadAllUsersThunk", () => {
   describe("When its called and has a valid token in the storage", () => {
     test("Then it should call the dispatch method passing the loadUsersAction", async () => {
       const mockDispatch = jest.fn();
@@ -78,3 +78,4 @@ describe("Given a loadAllUsersThunk", () => {
     });
   });
 });
+ */

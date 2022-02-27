@@ -19,3 +19,8 @@ export const filterFriendsAction = (filteringObject) => ({
   type: actionTypes.filterFriends,
   filteringObject,
 });
+
+export const addConnectionsAction = (newConnections) => ({
+  type: actionTypes.addConnections,
+  newConnections,
+});

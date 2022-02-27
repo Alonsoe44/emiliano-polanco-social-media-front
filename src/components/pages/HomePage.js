@@ -1,4 +1,3 @@
-import { Button } from "@nextui-org/react";
 import "./HomePage.css";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,24 +14,26 @@ const HomePage = () => {
   }, [dispatch]);
 
   const allUsers = useSelector((state) => state.allUsers);
-  // const theUser = useSelector((state) => state.user);
+  const theUser = useSelector((state) => state.user);
 
   return (
     <>
       <NavegationBar />
       <div className="white-space"></div>
+
       <div className="home-page">
-        {allUsers.map((user) => (
-          <UserCard name={user.name} lastname={user.lastName} key={user._id} />
-        ))}
+        <img className="background-image z-plus" alt="" />
+        {allUsers
+          .filter((normalUser) => normalUser._id !== theUser.profile._id)
+          .map((user) => (
+            <UserCard
+              name={user.name}
+              lastname={user.lastName}
+              key={user._id}
+              thisUserId={user._id}
+            />
+          ))}
       </div>
-      <Button
-        onClick={() => {
-          localStorage.removeItem("token");
-        }}
-      >
-        LogOut
-      </Button>
     </>
   );
 };

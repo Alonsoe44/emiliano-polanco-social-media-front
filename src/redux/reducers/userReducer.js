@@ -26,10 +26,18 @@ const userReducer = (userState = initialState, action = {}) => {
         submitedForm: true,
       };
       break;
+    case actionTypes.addConnections:
+      newUserState = {
+        profile: {
+          ...userState.profile,
+          connections: action.newConnections,
+        },
+        submitedForm: true,
+      };
+      break;
     default:
       newUserState = { ...userState };
   }
-
   return newUserState;
 };
 
