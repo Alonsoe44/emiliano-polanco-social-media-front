@@ -1,0 +1,35 @@
+.card-user {
+  position: relative;
+  background-color: black;
+  border-radius: 2rem;
+  margin: 2rem;
+  height: 10rem;
+  overflow: hidden;
+  width: 43%;
+  display: flex;
+}
+
+.card-user__names {
+  margin-top: 4rem;
+  margin-left: 240px;
+  color: white;
+}
+
+.add-button-media {
+  margin-top: 1rem;
+  position: absolute;
+  right: 15px;
+}
+
+.card-user__picture {
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  left: -30px;
+}
+
+@media (max-width: 900px) {
+  .card-user {
+    width: 70%;
+  }
+}

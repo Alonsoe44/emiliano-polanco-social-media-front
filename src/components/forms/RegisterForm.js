@@ -11,7 +11,7 @@ const RegisterForm = () => {
   const formik = useFormik({
     initialValues: {
       name: "",
-      lastname: "",
+      lastName: "",
       email: "",
       username: "",
       password: "",
@@ -40,8 +40,8 @@ const RegisterForm = () => {
 
         <Grid xs={6}>
           <Input
-            id="lastname"
-            name="lastname"
+            id="lastName"
+            name="lastName"
             label="Lastname"
             type="text"
             onChange={formik.handleChange}
