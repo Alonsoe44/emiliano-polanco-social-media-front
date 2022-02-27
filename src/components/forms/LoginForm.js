@@ -1,13 +1,11 @@
 import { Button, Grid, Input, Spacer, Text } from "@nextui-org/react";
 import { useFormik } from "formik";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { loginUserThunk } from "../../redux/thunks/userThunks";
 
 const LoginForm = () => {
-  const userState = useSelector((state) => {
-    return state.user;
-  });
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -15,7 +13,6 @@ const LoginForm = () => {
       password: "",
     },
     onSubmit: ({ userName, password }) => {
-      console.log(userName);
       dispatch(loginUserThunk({ username: userName, password }));
     },
   });
@@ -58,7 +55,7 @@ const LoginForm = () => {
             }}
             weight="bold"
           >
-            Linkbook {userState.profile.name}
+            Linkbook
           </Text>
         </Grid>
         <Grid xs={6}>
@@ -82,7 +79,15 @@ const LoginForm = () => {
         <Spacer y={2} />
         <Grid xs={6}></Grid>
         <Grid xs={6}>
-          <Button type="submit" color="success" auto>
+          <Button
+            type="button"
+            color="success"
+            onClick={() => {
+              console.log("hi");
+              navigate("/register");
+            }}
+            auto
+          >
             Create account
           </Button>
         </Grid>
