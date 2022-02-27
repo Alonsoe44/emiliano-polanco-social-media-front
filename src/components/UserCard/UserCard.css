@@ -17,9 +17,9 @@
 }
 
 .add-button-media {
-  margin-top: 1rem;
-  position: absolute;
-  right: 15px;
+  margin-top: 1rem !important;
+  position: absolute !important;
+  right: 15px !important;
 }
 
 .card-user__picture {
