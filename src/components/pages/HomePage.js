@@ -15,7 +15,7 @@ const HomePage = () => {
   }, [dispatch]);
 
   const allUsers = useSelector((state) => state.allUsers);
-  const theUser = useSelector((state) => state.user);
+  // const theUser = useSelector((state) => state.user);
 
   return (
     <>
