@@ -14,11 +14,11 @@
   height: 60px;
 
   border-top: 1px solid #363669;
-  background-color: #0070f3;
+  background-color: #2865ac;
   color: white;
 
   box-shadow: 0px 0px 40px 5px #a8a8a8;
-  z-index: 100;
+  z-index: 900;
 }
 
 a {

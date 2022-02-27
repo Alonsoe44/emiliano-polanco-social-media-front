@@ -77,4 +77,41 @@ describe("Given a userReducer", () => {
       expect(newUserState).toEqual(expectedUserState);
     });
   });
+
+  describe("When it receives a addConectionAction with userIdPayload", () => {
+    test("Then it should return a new state with the userIdPayload", () => {
+      const initialStateUser = {
+        profile: {
+          name: "Girono",
+          lastName: "",
+          email: "",
+          birthDate: "",
+          username: "",
+          connections: ["r423423"],
+        },
+        submitedForm: false,
+      };
+      const userPayload = ["r423423", "r4623462463l", "ia643264", "544566r"];
+
+      const action = {
+        type: actionTypes.addConnections,
+        newConnections: userPayload,
+      };
+
+      const expectedUserState = {
+        profile: {
+          name: "Girono",
+          lastName: "",
+          email: "",
+          birthDate: "",
+          username: "",
+          connections: ["r423423", "r4623462463l", "ia643264", "544566r"],
+        },
+        submitedForm: true,
+      };
+      const newUserState = userReducer(initialStateUser, action);
+
+      expect(newUserState).toEqual(expectedUserState);
+    });
+  });
 });

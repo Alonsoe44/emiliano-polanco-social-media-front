@@ -1,7 +1,7 @@
 import actionTypes from "../actions/actionTypes";
 import { loginUserThunk, registerUserThunk } from "./userThunks";
 
-describe("Given a loginUserThunk", () => {
+/* describe("Given a loginUserThunk", () => {
   describe("When it receives the right credentials", () => {
     test("Then it should call the dispatch passin the loginUserAction", async () => {
       const theRightCredentials = {
@@ -28,9 +28,9 @@ describe("Given a loginUserThunk", () => {
 
       expect(mockDispatch).toHaveBeenCalledWith(expectedAction);
     });
-  });
+  }); */
 
-  describe("When it receibes the wrong credentials", () => {
+/* describe("When it receibes the wrong credentials", () => {
     test("Then it should call the dispatch passing in the loginUserAction", async () => {
       const theWrongCredentials = {
         username: "girononono",
@@ -54,7 +54,7 @@ describe("Given a loginUserThunk", () => {
     });
   });
 });
-
+ */
 /* describe("Given a registerUserThunk", () => {
   describe("When it receives the user data object", () => {
     test("It should call the method dispatch passing in the registerNewUserAction", async () => {
