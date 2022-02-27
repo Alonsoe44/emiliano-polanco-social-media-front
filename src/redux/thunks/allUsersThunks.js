@@ -3,28 +3,32 @@ import jwtDecode from "jwt-decode";
 import {
   filterFriendsAction,
   loadUsersAction,
+  loginUserAction,
 } from "../actions/actionsCreator";
 
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR2Zub1IiLCJsYXN0TmFtZSI6Ikdpb3Zhbm5hIiwiZW1haWwiOiJnaW9ybm8xMjNAZ21haWwuY29tIiwiYmlydGhEYXRlIjoiMjAwMC0wOS0wMyIsInVzZXJuYW1lIjoiZ29sZGVuV2luZHIxIiwiX2lkIjoiNjIxYTJjYzFkZjUzMGEyMTcxZjNjNzEzIiwiaWF0IjoxNjQ1ODgyNTYxfQ.w9wojSCESLygsTG5tj9T5D5Acathz6rGj4m--_52DWI";
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export const loadUsersThunk = async (dispatch) => {
+  console.log(localStorage.getItem("token"));
   const response = await axios.get(`${apiUrl}home`, {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
   });
-
   const allUsers = response.data.users;
 
+  const actualUser = await jwtDecode(localStorage.getItem("token"));
+  const actualUserRefresh = allUsers.find(
+    (user) => user._id === actualUser._id
+  );
+  dispatch(loginUserAction(actualUserRefresh));
   dispatch(loadUsersAction(allUsers));
 };
 
 export const filterFriendsThunk = async (dispatch) => {
   const response = await axios.get(`${apiUrl}home`, {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
   });
   const allUsers = response.data.users;
@@ -33,7 +37,7 @@ export const filterFriendsThunk = async (dispatch) => {
     password: null,
   }));
 
-  const actualUserPayloadToken = await jwtDecode(token);
+  const actualUserPayloadToken = await jwtDecode(localStorage.getItem("token"));
   const actualUserData = allUsers.find(
     (user) => user._id === actualUserPayloadToken._id
   );

@@ -17,6 +17,7 @@ export const loginUserThunk =
       const tokenString = response.data.token;
       const userData = await jwtDecode(tokenString);
       delete userData.iat;
+      localStorage.setItem("token", tokenString);
       dispatch(loginUserAction(userData));
     } catch (error) {
       const userData = {
@@ -36,6 +37,7 @@ export const registerUserThunk = (newUserData) => async (dispatch) => {
     const tokenString = response.data.token;
     const userData = await jwtDecode(tokenString);
     delete userData.iat;
+    localStorage.setItem("token", tokenString);
     dispatch(registerNewUserAction(userData));
   } catch (error) {
     dispatch(
