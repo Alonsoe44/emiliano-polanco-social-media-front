@@ -38,3 +38,7 @@ a:visited {
 .navigation__list li {
   list-style: none;
 }
+
+.user-name-imp {
+  color: white !important;
+}

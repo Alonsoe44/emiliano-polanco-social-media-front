@@ -39,7 +39,7 @@ const NavegationBar = () => {
         </li>
         <li className="navegation-bar__item">
           <Link to="/profile">
-            <h3 className="navegation__text">
+            <h3 className="navegation__text user-name-imp">
               {theUser.profile.name}'s profile
             </h3>
           </Link>
