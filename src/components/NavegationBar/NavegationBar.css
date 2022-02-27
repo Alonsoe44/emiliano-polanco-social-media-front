@@ -1,0 +1,40 @@
+.navegation-bar__list {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+
+  position: fixed;
+  top: 0;
+
+  width: 100vw;
+  height: 60px;
+
+  border-top: 1px solid #363669;
+  background-color: #0070f3;
+  color: white;
+
+  box-shadow: 0px 0px 40px 5px #a8a8a8;
+  z-index: 100;
+}
+
+a {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
+.navigation__text {
+  display: none;
+}
+.navegation__text:hover {
+  cursor: pointer;
+}
+.navigation__list li {
+  list-style: none;
+}

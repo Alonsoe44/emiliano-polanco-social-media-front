@@ -1,0 +1,12 @@
+.home-page {
+  height: 100vh;
+  position: relative;
+  color: red;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
+.white-space {
+  height: 60px;
+}

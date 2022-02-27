@@ -9,7 +9,6 @@ import {
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export const loadUsersThunk = async (dispatch) => {
-  console.log(localStorage.getItem("token"));
   const response = await axios.get(`${apiUrl}home`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
